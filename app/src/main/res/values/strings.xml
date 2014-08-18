@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PeekABoo</string>
+    <string name="video_size_limit">The selected video must be less than 10MB</string>
+
+    <!-- Tab Section -->
+    <string name="title_section1">Inbox</string>
+    <string name="title_section2">Friends</string>
+
+    <!-- Action Bar -->
+    <string name="action_edit_friends">Edit Friends</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_logout">Logout</string>
+    <string name="action_camera_label">Camera</string>
+    <string name="menu_send_label">Send</string>
+    <string name="action_message_text_label">Message</string>
+
+    <string-array name="camera_choices">
+        <item>Take Picture</item>
+        <item>TaKe Video</item>
+        <item>Choose Picture</item>
+        <item>Choose Video</item>
+    </string-array>
+
+    <!-- LogIn -->
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="username_hint">Username</string>
+    <string name="passwordField">Password</string>
+    <string name="login_button">Login</string>
+
+    <!-- Signup -->
+    <string name="signUpText">Sign Up</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="emailHint">Email</string>
+    <string name="signUp_button">Sign Up</string>
+
+    <!-- SignUp Error -->
+    <string name="signUp_error_message">Please enter username, password and email</string>
+    <string name="error_title">Oops! Error</string>
+
+    <!-- LogIn Error -->
+    <string name="LogIn_error_message">Please enter username and password</string>
+    <string name="LogIn_error_title">Oops! Error</string>
+
+    <!-- General Error -->
+    <string name="general_error">There was an error!</string>
+    <string name="error_opening_file">There was a problem selecting a file</string>
+    <string name="file_size">The selected file is too large</string>
+    <string name="error_selecting_file">The selected file was an error with the selected file.
+                                            Please select another file</string>
+
+    <!-- Label -->
+    <string name="empty_inbox">No Message</string>
+    <string name="empty_friends">No Friends</string>
+    <string name="title_activity_edit_friends">Edit Friends</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_recipients">Choose Recipients</string>
+    <string name="emtpy_recipients_list">No Friends yet</string>
+    <string name="success_message">Message has been sent</string>
+    <string name="title_activity_send_message">SendMessage</string>
+    <string name="select_recipient_button_label">Select Recipient</string>
+    <string name="title_activity_view_image">Peek</string>
+
+</resources>

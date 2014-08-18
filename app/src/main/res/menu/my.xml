@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MyActivity" >
+
+    <item android:id="@+id/action_messageText"
+        android:title="@string/action_message_text_label"
+        android:icon="@drawable/ic_action_new_email"
+        android:showAsAction="always"/>
+
+    <item android:id="@+id/action_camera"
+        android:title="@string/action_camera_label"
+        android:icon="@drawable/ic_action_camera"
+        android:showAsAction="always"/>
+
+    <item android:id="@+id/action_log_out"
+        android:title="@string/action_logout"
+        android:orderInCategory="102"
+        android:showAsAction="never"/>
+
+    <item android:id="@+id/action_edit_friends"
+        android:title="@string/action_edit_friends"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+
+</menu>
