@@ -27,13 +27,14 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="username_hint">Username</string>
     <string name="passwordField">Password</string>
-    <string name="login_button">Login</string>
+    <string name="login_button">LOGIN</string>
 
     <!-- Signup -->
-    <string name="signUpText">Sign Up</string>
+    <string name="signUpText">Don\'t have an account? Sign Up</string>
     <string name="title_activity_sign_up">SignUpActivity</string>
     <string name="emailHint">Email</string>
-    <string name="signUp_button">Sign Up</string>
+    <string name="signUp_button">SIGN UP</string>
+    <string name="cancelSignUp_button">CANCEL</string>
 
     <!-- SignUp Error -->
     <string name="signUp_error_message">Please enter username, password and email</string>

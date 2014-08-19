@@ -1,5 +1,6 @@
 package com.PeekABoo.bourne.peekaboo;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -31,6 +32,9 @@ public class LoginActivity extends Activity {
 
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_login);
+
+        ActionBar actionBar = getActionBar();
+        actionBar.hide();
 
         mSignUpTextView = (TextView)findViewById(R.id.signup);
         mSignUpTextView.setOnClickListener(new View.OnClickListener() {
