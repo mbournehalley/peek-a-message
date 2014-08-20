@@ -8,14 +8,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@android:id/list"
+        android:paddingLeft="@dimen/inbox_horizontal_margin"
+        android:paddingRight="@dimen/inbox_horizontal_margin"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-    
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:divider="#C7C6CF"
+        android:dividerHeight="1px"/>
+
+    <ImageView
         android:id="@android:id/empty"
-        android:text="@string/empty_friends" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_action_group"/>
 
 </RelativeLayout>

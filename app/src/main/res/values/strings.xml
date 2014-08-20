@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">PeekABoo</string>
+    <string name="app_name">PeekAMessage</string>
     <string name="video_size_limit">The selected video must be less than 10MB</string>
 
     <!-- Tab Section -->
@@ -56,11 +56,14 @@
     <string name="empty_friends">No Friends</string>
     <string name="title_activity_edit_friends">Edit Friends</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_recipients">Choose Recipients</string>
+    <string name="title_activity_recipients">Choose Friends</string>
     <string name="emtpy_recipients_list">No Friends yet</string>
     <string name="success_message">Message has been sent</string>
-    <string name="title_activity_send_message">SendMessage</string>
+    <string name="title_activity_send_message">Send Message</string>
     <string name="select_recipient_button_label">Select Recipient</string>
     <string name="title_activity_view_image">Peek</string>
+
+    <!-- Notifactions -->
+    <string name="push_message">New Peek Message from %s</string>
 
 </resources>

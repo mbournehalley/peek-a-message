@@ -2,4 +2,9 @@
 <resources>
     <color name="apptheme_color">#ff8800</color>
     <color name="background_color">#f9b260</color>
+    <color name="light_orange_background">#f8b66a</color>
+    <color name="swipeRefresh1">#f80</color>
+    <color name="swipeRefresh2">#fb3</color>
+    <color name="swipeRefresh3">#f80</color>
+    <color name="swipeRefresh4">#fb3</color>
 </resources>

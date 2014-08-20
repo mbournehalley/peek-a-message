@@ -8,6 +8,7 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
 import java.util.Locale;
 
 /**
@@ -53,5 +54,15 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         }
         return null;
+    }
+
+    public int getIcon(int position) {
+        switch (position) {
+            case 0:
+                return R.drawable.ic_action_inbox_mail_full_3;
+            case 1:
+                return R.drawable.ic_action_group;
+        }
+        return R.drawable.ic_action_inbox_mail_full_3;
     }
 }

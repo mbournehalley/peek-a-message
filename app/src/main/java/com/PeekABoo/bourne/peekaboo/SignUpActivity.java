@@ -84,6 +84,10 @@ public class SignUpActivity extends Activity {
             public void done(ParseException e) {
                 if(e == null){
                     //Success in signing up
+                    PeekabooApplication.updateParseInstallation(
+                            ParseUser.getCurrentUser()
+                    );
+
                     Intent intent = new Intent(SignUpActivity.this, MyActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);

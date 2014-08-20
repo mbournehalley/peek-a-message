@@ -1,6 +1,5 @@
 package com.PeekABoo.bourne.peekaboo;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.net.Uri;
@@ -14,17 +13,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.PeekABoo.bourne.peekaboo.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
+import com.parse.ParsePush;
 import com.parse.ParseQuery;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +37,7 @@ public class RecipientsActivity extends ListActivity {
     protected MenuItem mSendMenuItem;
     protected Uri mMediaUri;
     protected String mFileType;
+    protected String mTextMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +47,15 @@ public class RecipientsActivity extends ListActivity {
 
         getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
-        mMediaUri = getIntent().getData();
         mFileType = getIntent().getExtras().getString(ParseConstants.KEY_FILE_TYPE);
+
+        if(mFileType.equals(ParseConstants.TYPE_TEXT)){
+            mTextMessage = getIntent().getStringExtra(ParseConstants.TYPE_TEXT);
+        }
+        else {
+            mMediaUri = getIntent().getData();
+        }
+
     }
 
     @Override
@@ -123,7 +130,7 @@ public class RecipientsActivity extends ListActivity {
         int id = item.getItemId();
         switch (id) {
             case R.id.action_send:
-                ParseObject message = creatMessage();
+                ParseObject message = createMessage();
                 if(message == null) {
                     //Error Selecting the message
                     AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -137,7 +144,6 @@ public class RecipientsActivity extends ListActivity {
                     send(message);
                     finish();
                 }
-
                 return true;
         }
 
@@ -157,28 +163,34 @@ public class RecipientsActivity extends ListActivity {
     }
 
     // The Message objects
-    protected ParseObject creatMessage(){
+    protected ParseObject createMessage(){
         ParseObject message = new ParseObject(ParseConstants.CLASS_MESSAGE);
         message.put(ParseConstants.KEY_SENDER_ID, ParseUser.getCurrentUser().getObjectId());
         message.put(ParseConstants.KEY_SENDER_NAME, ParseUser.getCurrentUser().getUsername());
         message.put(ParseConstants.KEY_RECIPIENTS_ID, getRecipientIds());
         message.put(ParseConstants.KEY_FILE_TYPE, mFileType);
 
-        byte[] filebytes = FileHelper.getByteArrayFromFile(this, mMediaUri);
-
-        if(filebytes == null) {
-            return null;
-        }
-        else {
-            if (mFileType.equals(ParseConstants.TYPE_IMAGE)) {
-                filebytes = FileHelper.reduceImageForUpload(filebytes);
-            }
-
-            String fileName = FileHelper.getFileName(this, mMediaUri, mFileType);
-            ParseFile file = new ParseFile(fileName, filebytes);
-            message.put(ParseConstants.KEY_FILE, file);
+        // User sends a SMS
+        if(mFileType.equals(ParseConstants.TYPE_TEXT)){
+            message.put(ParseConstants.TYPE_TEXT, mTextMessage);
             return message;
         }
+        else {
+            byte[] filebytes = FileHelper.getByteArrayFromFile(this, mMediaUri);
+            if (filebytes == null) {
+                return null;
+            } else {
+                if (mFileType.equals(ParseConstants.TYPE_IMAGE)) {
+                    filebytes = FileHelper.reduceImageForUpload(filebytes);
+                }
+
+                String fileName = FileHelper.getFileName(this, mMediaUri, mFileType);
+                ParseFile file = new ParseFile(fileName, filebytes);
+                message.put(ParseConstants.KEY_FILE, file);
+                return message;
+            }
+        }
+
     }
 
     // Get all the recipients IDS
@@ -201,12 +213,25 @@ public class RecipientsActivity extends ListActivity {
                     Toast.makeText(RecipientsActivity.this,
                             R.string.success_message,
                             Toast.LENGTH_LONG).show();
+                    sendPushNotification();
                 }
                 else {
                     errorDialogBox(e);
                 }
             }
         });
+    }
+
+    protected void sendPushNotification() {
+        ParseQuery<ParseInstallation> query = ParseInstallation.getQuery();
+        query.whereContainedIn(ParseConstants.KEY_USER_ID, getRecipientIds());
+
+        //send push notifications
+        ParsePush push = new ParsePush();
+        push.setQuery(query);
+        push.setMessage(getString(R.string.push_message,
+                ParseUser.getCurrentUser().getUsername()));
+        push.sendInBackground();
     }
 
 }

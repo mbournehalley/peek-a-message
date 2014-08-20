@@ -31,11 +31,16 @@
         <item name="android:actionModeBackground">@drawable/cab_background_top_peek</item>
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_peek</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Peek</item>
+        <item name="android:listViewStyle">@style/Theme.Peek.LightOrangeBackground</item>
 
         <item name="android:editTextBackground">@drawable/apptheme_edit_text_holo_light</item>
         <!-- Light.DarkActionBar specific -->
         <item name="android:actionBarWidgetTheme">@style/Theme.Peek.Widget</item>
 
+    </style>
+
+    <style name="Theme.Peek.LightOrangeBackground">
+        <item name="android:background">@color/light_orange_background</item>
     </style>
 
     <style name="ActionBar.Solid.Peek" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">

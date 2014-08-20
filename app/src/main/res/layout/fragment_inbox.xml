@@ -4,18 +4,34 @@
     android:layout_height="match_parent"
     tools:context=".MyActivity$PlaceholderFragment">
 
-    <ListView
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@android:id/list"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-    
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true">
+
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:clipToPadding="false"
+            android:paddingLeft="@dimen/inbox_horizontal_margin"
+            android:paddingRight="@dimen/inbox_horizontal_margin"
+            android:paddingBottom="@dimen/inbox_vertical_margin"
+            android:divider="#C7C6CF"
+            android:dividerHeight="1px" >
+        </ListView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <ImageView
         android:id="@android:id/empty"
-        android:text="@string/empty_inbox" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_action_inbox_mail_full_3"/>
+
 
 </RelativeLayout>

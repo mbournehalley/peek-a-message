@@ -7,8 +7,12 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingLeft="@dimen/inbox_horizontal_margin"
+        android:paddingRight="@dimen/inbox_horizontal_margin"
         android:id="@android:id/list"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"
+        android:divider="#C7C6CF"
+        android:dividerHeight="1px"/>
 
 </RelativeLayout>
